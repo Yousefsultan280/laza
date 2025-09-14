@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:laza/laza/get_start.dart';
 
 import 'const.dart';
 import 'login_screen.dart';
@@ -21,11 +22,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
       backgroundColor: Color(0xff9775FA),
       body: Stack(
         children: [
-                   InkWell(
-                     onTap: (){
-                       Get.to(LoginScreen());
-                     },
-                       child: Image.asset(imagePath+"person.png")),
+                    Image.asset(imagePath+"person.png"),
                   Positioned(
                     bottom: 15,
                       child: Container(
@@ -67,15 +64,15 @@ class _SplashScreen2State extends State<SplashScreen2> {
                               ],
                             ),
                             SizedBox(height: 10,),
-                            Text("Skip")
+                            InkWell(
+                                onTap: (){
+                                  Get.to(GetStartScreen());
+                                },
+                                child: Text("Skip"))
                           ],
                         )
-
                       )
-
-                          // Text("create you individual and unique style and look amazing every day")
                   )
-
         ],
       ),
     );

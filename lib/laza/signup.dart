@@ -1,27 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laza/custombutton.dart';
-import 'package:laza/laza/get_start.dart';
-import 'package:laza/laza/signup.dart';
-import 'package:laza/mainscreen/screen1.dart';
 
+import '../custombutton.dart';
 import '../custompassword.dart';
+import '../mainscreen/screen1.dart';
+import 'get_start.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<Signup> createState() => _SignupState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupState extends State<Signup> {
   final _key=GlobalKey<FormState>();
-
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
 
       body:  SingleChildScrollView(
@@ -30,15 +27,15 @@ class _LoginScreenState extends State<LoginScreen> {
 
           child: Column(
             children: [
-          
+
               Padding(
                 padding: const EdgeInsets.only(top: 100,left: 40,right: 40),
                 child: Column(
                   children: [
                     Container(
                         child:
-                        Text("Welcome",style:TextStyle(fontWeight:FontWeight.bold,fontSize: 30))),
-                    Text("Please enter your data to continue")
+                        Text("SignUp",style:TextStyle(fontWeight:FontWeight.bold,fontSize: 30))),
+
                   ],
                 ),
               ),
@@ -47,8 +44,32 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.only(left: 40),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-          
+
                   children: [
+                    Text("Name",style:TextStyle(fontWeight:FontWeight.bold,fontSize: 20) ,),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 25),
+                      child: Container(
+                        padding: EdgeInsets.only(left: 20),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),border:BoxBorder.all(color: Colors.black,width: 2),
+                        ),
+                        child: TextFormField(
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return "please enter your name ";
+                            }
+                          },
+
+                          decoration: InputDecoration(
+
+                            border: InputBorder.none,
+
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+
                     Text("Email",style:TextStyle(fontWeight:FontWeight.bold,fontSize: 20) ,),
                     Padding(
                       padding: const EdgeInsets.only(right: 25),
@@ -66,8 +87,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
                           decoration: InputDecoration(
 
-                              border: InputBorder.none,
-          
+                            border: InputBorder.none,
+
                           ),
                         ),
                       ),
@@ -75,42 +96,33 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(height: 20,),
                     Custompassword(),
                     SizedBox(height: 8,),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 40),
-                      child: Text("Forget Password?",style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),),
-                    ),
+
                   ],
                 ),
               ),
-          
+
               SizedBox(height: 30,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Don't Have Account? "),
-                  InkWell(
-                      onTap:(){
-                        Get.to(Signup());
-                      },
-                      child: Text("SignIn",style: TextStyle(color: Colors.green),)),
-                ],
-              ),
 
-                 Cutombutton(title: "Login",color: Colors.blue, onTap: (){
-                 if( _key.currentState!.validate()){
-                   Get.to(Screen1());
-                 };
-                  // setState(() {});
 
-                }),
+              InkWell(
+                onTap: (){
+
+                  setState(() {});
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 0),
+                  child: Cutombutton(title: "SignUp",color: Colors.blue, onTap: (){
+                    if(_key.currentState!.validate()){
+                    Get.to(Screen1());
+                    }
+
+                  }),
+                ),
+              )
             ],
           ),
         ),
       ),
-    );
+    );;
   }
-
-
 }
-
-

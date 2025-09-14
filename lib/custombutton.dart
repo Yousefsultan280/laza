@@ -21,7 +21,7 @@ class Cutombutton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(color: color,borderRadius: BorderRadius.circular(20)),
         height: 75,
-        width: double.infinity,
+        width: MediaQuery.of(context).size.width*.95,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
