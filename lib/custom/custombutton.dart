@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 
 class Cutombutton extends StatelessWidget {
   final String? title;
-  final IconData? icon;
   final Color? color;
  final void Function()? onTap;
   const Cutombutton({
     super.key,
     required this.title,
-     this.icon,
     this.onTap,
     this.color
   });
@@ -25,7 +23,6 @@ class Cutombutton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon,size: 30,),
             SizedBox(width: 5,),
             Text(title!,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 23),),
           ],

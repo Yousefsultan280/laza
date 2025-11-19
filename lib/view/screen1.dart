@@ -12,7 +12,19 @@ class _Screen1State extends State<Screen1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("screen1"),),
+      appBar: AppBar(leading: Icon(Icons.menu),
+      actions: [
+        Icon(Icons.search_rounded),
+        SizedBox(width: 20,)
+      ],
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20,left: 20,right: 20),
+          child: ListView()
+        ),
+      ),
+
     );
   }
 }
